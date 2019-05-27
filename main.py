@@ -6,7 +6,7 @@ import datetime
 
 bot = telebot.TeleBot('874668678:AAHLzPER2fu7hs_6CkoiKt4faLV4vQDEVdk')
 time_format = '%H:%M:%S'
-tea_time = datetime.datetime.strptime('14:00:00', time_format).time()
+tea_time = datetime.datetime.strptime('14:00:00', time_format)
 
 
 @bot.message_handler(content_types=['text'])
@@ -35,8 +35,11 @@ def get_text_messages(message):
     if message.text == "/чай":
         time = datetime.datetime.now(datetime.timezone.utc).strftime(time_format)
         now_time = datetime.datetime.strptime(str(time), time_format)
-        remains = (tea_time - now_time).seconds/60
-        bot.send_message(message.chat.id, 'До вечернего чая осталось чучуть (' + remains + ' мин.)')
+        if tea_time > now_time:
+            remains = (tea_time - now_time).seconds/60
+        else:
+            remains = (now_time - tea_time).seconds/60 * -1
+        bot.send_message(message.chat.id, 'До вечернего чая осталось чучуть (' + str(remains) + ' мин.)')
 
 
 bot.polling(none_stop=True, interval=0)
