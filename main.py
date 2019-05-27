@@ -5,6 +5,8 @@ import datetime
 
 
 bot = telebot.TeleBot('874668678:AAHLzPER2fu7hs_6CkoiKt4faLV4vQDEVdk')
+time_format = '%H:%M:%S'
+tea_time = datetime.datetime.strptime('14:00:00', time_format).time()
 
 
 @bot.message_handler(content_types=['text'])
@@ -29,6 +31,12 @@ def get_text_messages(message):
                 img = open(today + '.jpg', 'rb')
         bot.send_photo(message.chat.id, img)
         img.close()
+
+    if message.text == "/чай":
+        time = datetime.datetime.now(datetime.timezone.utc).strftime(time_format)
+        now_time = datetime.datetime.strptime(str(time), time_format)
+        remains = (tea_time - now_time).seconds/60
+        bot.send_message(message.chat.id, 'До вечернего чая осталось чучуть (' + remains + ' мин.)')
 
 
 bot.polling(none_stop=True, interval=0)
