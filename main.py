@@ -33,13 +33,21 @@ def get_text_messages(message):
         img.close()
 
     if message.text == "/чай":
-        time = datetime.datetime.now(datetime.timezone.utc).strftime(time_format)
-        now_time = datetime.datetime.strptime(str(time), time_format)
-        if tea_time > now_time:
-            remains = (tea_time - now_time).seconds/60
+        weekday = datetime.datetime.today().weekday()
+        skoka = 'чучуть'
+        if weekday == 5 or weekday == 6:
+            bot.send_message(message.chat.id, 'До вечернего чая еще совсем нечучуть')
         else:
-            remains = (now_time - tea_time).seconds/60 * -1
-        bot.send_message(message.chat.id, 'До вечернего чая осталось чучуть (' + str(remains) + ' мин.)')
+            time = datetime.datetime.now(datetime.timezone.utc).strftime(time_format)
+            now_time = datetime.datetime.strptime(str(time), time_format)
+            if tea_time > now_time:
+                remains = int((tea_time - now_time).seconds / 60)
+            else:
+                remains = int((now_time - tea_time).seconds / 60 * -1)
+            if remains > 200:
+                skoka = 'нечучуть'
+            bot.send_message(message.chat.id, 'До вечернего чая осталось ' + skoka +
+                                              ' (' + str(remains) + ' мин.)')
 
 
 bot.polling(none_stop=True, interval=0)
