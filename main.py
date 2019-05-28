@@ -4,7 +4,7 @@ import urllib
 import datetime
 
 
-bot = telebot.TeleBot('874668678:AAHLzPER2fu7hs_6CkoiKt4faLV4vQDEVdk')
+bot = telebot.TeleBot('874668678:AAFiMpL4Vj6uIfN71Py8PRpXTFff-K9_qRc')
 time_format = '%H:%M:%S'
 tea_time = datetime.datetime.strptime('14:00:00', time_format)
 
