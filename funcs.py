@@ -50,6 +50,7 @@ def till_tea(bot, message):
             bot.send_message(message.chat.id, 'Вы охуели тут все? Уже ' + str(-1 * remains) + ' мин. как чай. Мда, пиздец.')
 
 
+
 def need_support(bot, message):
     options = [send_supportive_sticker, send_puppies, send_support]
     random.choice(options)(bot, message)

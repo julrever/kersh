@@ -23,8 +23,9 @@ def handle_text(message):
 
     if 'денис' in text:
         bot.send_message(message.chat.id, 'Денис, кстати, пидор')
-    if text == '/денис':
-        bot.send_message(message.chat.id, 'Денис, кстати, пидор')
+
+    if 'обидно вообще-то' in text:
+        bot.send_message(message.chat.id, 'Блин, прости')
 
     if text == 'йоу':
         #naruto(bot, message)
@@ -43,6 +44,9 @@ def handle_text(message):
             pass
         elif 'завтра' in text:
             get_weather_tomorrow(bot, message)
+
+
+
 
 
 bot.polling(none_stop=True, interval=0)

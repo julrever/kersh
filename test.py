@@ -1,9 +1,7 @@
-import telebot
+from requests_html import HTMLSession
 
-bot = telebot.TeleBot('694527891:AAF9t-c4MbZxdzwXXnLIPJF0vrVkfzSBTuM')
-@bot.message_handler(content_types=['text'])
-def handle_text(message):
-    if 'стартуем' in message.text.lower() or 'денис' in message.text.lower():
-        bot.send_message(message.chat.id, '/денис')
-
-bot.polling(none_stop=True, interval=0)
+session = HTMLSession()
+r = session.get('https://vk.com/k_owka')
+pic = r.html.find('#page_wall_posts').html.find('a')
+for p in pic:
+    print(p.attrs['class'])
