@@ -23,6 +23,8 @@ def handle_text(message):
 
     if 'денис' in text:
         bot.send_message(message.chat.id, 'Денис, кстати, пидор')
+    if text == '/денис':
+        bot.send_message(message.chat.id, 'Денис, кстати, пидор')
 
     if text == 'йоу':
         #naruto(bot, message)
