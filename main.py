@@ -26,6 +26,7 @@ def handle_text(message):
 
     if 'обидно вообще-то' in text:
         bot.send_message(message.chat.id, 'Блин, прости')
+        bot.send_sticker(message.chat.id, 'CAADAgADLAEAAlcuIwvSO0Q78q3rzAI')
 
     if text == 'йоу':
         #naruto(bot, message)
@@ -45,9 +46,8 @@ def handle_text(message):
         elif 'завтра' in text:
             get_weather_tomorrow(bot, message)
 
-
-
-
+    if text == 'куда жрать':
+        where_to_eat(bot, message)
 
 bot.polling(none_stop=True, interval=0)
 

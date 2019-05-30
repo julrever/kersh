@@ -122,3 +122,7 @@ def set_emoji_weather(text):
     if 'снег' in text:
         res += '❄️'
     return res
+
+
+def where_to_eat(bot, message):
+    bot.send_message(message.chat.id, random.choice(PLACES_TO_EAT))
