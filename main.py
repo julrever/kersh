@@ -16,11 +16,14 @@ def handle_text(message):
         if tea in text:
             till_tea(bot, message)
             break
-    if text[0] == 'ч' and text[-1] == 'й':
-        for i in 2..len(text)-2:
+
+    if text[0] == 'ч' and text[-1] == 'й' and text != 'чай':
+        only_a = True
+        for i in range(1, len(text)-1):
             if text[i] != 'а':
-                break
-        till_tea(bot, message)
+                only_a = False
+        if only_a:
+            till_tea(bot, message)
 
     for support in SUPPORT:
         if support in text:
