@@ -47,7 +47,12 @@ def till_tea(bot, message):
             bot.send_message(message.chat.id, 'До вечернего чая осталось ' + skoka +
                          ' (' + str(remains) + ' мин.)')
         else:
-            bot.send_message(message.chat.id, 'Вы охуели тут все? Уже ' + str(-1 * remains) + ' мин. как чай. Мда, пиздец.')
+            remains = str(-1 * remains)
+            late_text = ('Вы охуели тут все? Уже ' + remains + ' мин. как чай. Мда, пиздец.',
+                         'Ало, чай был ' + remains + ' мин. назад',
+                         'Чай то пить пойдем? Уже ' + remains + ' мин. как чай.',
+                         'Кхм-кхм, чай. ' + remains + ' мин. уже')
+            bot.send_message(message.chat.id, random.choice(late_text))
 
 
 def need_support(bot, message):

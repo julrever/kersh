@@ -17,6 +17,9 @@ def handle_text(message):
             till_tea(bot, message)
             break
     if text[0] == 'ч' and text[-1] == 'й':
+        for i in 2..len(text)-2:
+            if text[i] != 'а':
+                break
         till_tea(bot, message)
 
     for support in SUPPORT:
