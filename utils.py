@@ -4,11 +4,11 @@ import random
 from config import *
 
 
-def send_menu(bot, message):
+def send_menu(bot, chat_id):
     weekday = datetime.datetime.today().weekday()
     today = str(datetime.datetime.today().date())
     if weekday == 5 or weekday == 6:
-        bot.send_message(message.chat.id, 'not today')
+        bot.send_message(chat_id, 'not today')
     else:
         try:
             img = open(today + '.jpg', 'rb')
@@ -20,7 +20,7 @@ def send_menu(bot, message):
             f.write(urllib.request.urlopen(pic).read())
             f.close()
             img = open('africa/' + today + '.jpg', 'rb')
-    bot.send_photo(message.chat.id, img)
+    bot.send_photo(chat_id, img)
     img.close()
 
 
