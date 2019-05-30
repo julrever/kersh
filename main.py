@@ -1,5 +1,5 @@
 import telebot
-from funcs import *
+from utils import *
 
 bot = telebot.TeleBot('874668678:AAFiMpL4Vj6uIfN71Py8PRpXTFff-K9_qRc')
 
@@ -35,8 +35,12 @@ def handle_text(message):
     if text == 'юля':
         bot.send_message(message.chat.id, 'Вы имели в виду Бля?')
 
-    if text == 'что?' or text == 'че?':
+    if text == 'что?' or text == 'че?' or text == 'что' or text == 'што':
         bot.send_message(message.chat.id, 'Там написано, что ты сучара.')
+
+    if text == 'нет':
+        no = ('Пидора ответ, хахаха', 'Дениса ответ')
+        bot.send_message(message.chat.id, random.choice(no))
 
     if 'погод' in text:
         if 'сегодня' in text or 'седня' in text:
@@ -48,6 +52,11 @@ def handle_text(message):
 
     if text == 'куда жрать':
         where_to_eat(bot, message)
+
+    if 'болот' in text:
+        bot.send_audio(message.chat.id, audio=open('swamp.mp3', 'rb'), caption=None, duration=None,
+                       performer="Ker", title="Sh", timeout=2000, reply_to_message_id=message.message_id)
+
 
 bot.polling(none_stop=True, interval=0)
 
