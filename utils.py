@@ -8,7 +8,7 @@ def send_menu(bot, chat_id):
     weekday = datetime.datetime.today().weekday()
     today = str(datetime.datetime.today().date())
     if weekday == 5 or weekday == 6:
-        bot.send_message(chat_id, 'not today')
+        bot.send_message(chat_id, 'А еще тебе чего?')
     else:
         try:
             img = open(today + '.jpg', 'rb')
@@ -40,7 +40,7 @@ def till_tea(bot, message):
                 remains = 24*60 + remains
                 if weekday == 4:
                     bot.send_message(message.chat.id, 'До вечернего чая еще совсем нечучуть')
-                    pass
+                    return
         if remains > 120:
             skoka = 'нечучуть'
         if remains > 0:
