@@ -59,12 +59,15 @@ def handle_text(message):
         bot.send_message(chat_id, random.choice(no))
 
     if 'погод' in text:
+        bot.send_chat_action(chat_id, 'typing')
         if 'сейчас' in text or 'ща' in text:
             weather_now(bot, chat_id)
+        if 'сегодня' in text or 'седня' in text:
+            weather_day(bot, chat_id, 0)
         if 'послезавтра' in text:
-            pass
+            weather_day(bot, chat_id, 2)
         elif 'завтра' in text:
-            get_weather_tomorrow(bot, message)
+            weather_day(bot, chat_id, 1)
 
     if text == 'куда жрать':
         bot.send_chat_action(chat_id, 'typing')
@@ -82,6 +85,12 @@ def handle_text(message):
     if 'прогноз' in text:
         bot.send_chat_action(chat_id, 'typing')
         weather_week(bot, chat_id)
+
+    if text[0:6] == 'рандом':
+        bot.send_message(chat_id, random.choice(message.text[7:].split(',')))
+
+    if text[0:3] == 'рнд':
+        bot.send_message(chat_id, random.choice(message.text[4:].split(',')))
 
 
 bot.polling(none_stop=True, interval=0)

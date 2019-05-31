@@ -34,15 +34,26 @@ def weather_week(bot, chat_id):
     bot.send_message(chat_id, text)
 
 
+def weather_day(bot, chat_id, day):
+    r = requests.post(base_url + 'v1/forecast.json?key=' + api_key + '&q=Petersburg,Ru&days=' + str(day+1))
+    res = json.loads(r.text)['forecast']['forecastday'][day]
+    condition = translator.translate(res['day']['condition']['text'], src='en', dest='ru').text
+    text = '\n' + set_emoji_weather(condition) + \
+           '\nМакс.: ' + str(res['day']['maxtemp_c']) + '°\n' \
+           'Мин.: ' + str(res['day']['mintemp_c']) + '°\n' \
+           'Влажность: ' + str(res['day']['avghumidity']) + '%\n' \
+           'Рассвет: ' + res['astro']['sunrise'] + ', закат: ' + res['astro']['sunset'] + '\n\n'
+    bot.send_message(chat_id, text)
+
+
 def set_emoji_weather(text):
-    text = text.lower()
     res = ''
-    if 'ясно' in text:
+    if 'ясно' in text.lower():
         res += '☀️'
-    if 'облачно' in text:
+    if 'облачно' in text.lower() or 'пасмурн' in text.lower():
         res += '⛅️'
-    if 'дождь' in text:
+    if 'дождь' in text.lower():
         res += '🌧'
-    if 'снег' in text:
+    if 'снег' in text.lower():
         res += '❄️'
     return res + ' ' + text
