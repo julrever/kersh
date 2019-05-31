@@ -35,7 +35,8 @@ def handle_text(message):
 
     if 'денис' in text:
         bot.send_chat_action(chat_id, 'typing')
-        bot.send_message(chat_id, 'Денис, кстати, пидор')
+        if random.choice(True, False):
+            bot.send_message(chat_id, 'Денис, кстати, пидор')
 
     if 'обидно вообще-то' in text:
         bot.send_chat_action(chat_id, 'typing')
@@ -47,7 +48,8 @@ def handle_text(message):
         pass
 
     if text == 'юля':
-        bot.send_message(chat_id, 'Вы имели в виду Бля?')
+        if random.choice(True, False)
+            bot.send_message(chat_id, 'Вы имели в виду Бля?')
 
     if text == 'что?' or text == 'че?' or text == 'что' or text == 'што':
         bot.send_chat_action(chat_id, 'typing')
