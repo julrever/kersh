@@ -44,8 +44,7 @@ def handle_text(message):
             bot.send_sticker(chat_id, 'CAADAgADLAEAAlcuIwvSO0Q78q3rzAI')
 
     if text == 'йоу':
-        #naruto(bot, message)
-        pass
+        naruto(bot, message)
 
     if text == 'юля':
         if random.choice((True, False)):
@@ -82,7 +81,10 @@ def handle_text(message):
 
     if 'бунд' in text or 'бунт' in text:
         bot.send_chat_action(chat_id, 'typing')
-        bot.send_message(chat_id, 'Селама Ашал\'анорэ!')
+        bot.send_message(chat_id, 'Энергия. Сила. Мои люди без них не могут... Эта зависимость возникла '
+                                  'после уничтожения Солнечного Колодца. Добро пожаловать... в будущее. '
+                                  'Мне очень жаль, но вы не сможете ничего изменить. Теперь меня никто '
+                                  'не остановит! Селама Ашал\'анорэ!')
 
     if 'прогноз' in text:
         bot.send_chat_action(chat_id, 'typing')
@@ -101,14 +103,19 @@ def handle_text(message):
         bot.send_message(chat_id, 'Денис, кстати, пидор')
 
     if 'как дела' in text or 'а у тебя' in text or 'а ты как' in text:
-        bot.send_message(chat_id, random.choice(('Хорошо, ', 'Нормально, ', 'Неплохо, ',
-                                                 'Ниче, ', 'Пойдет, ', 'Ну так, ')) +
-                                  random.choice(('а у тебя как?', 'а ты как?')))
+        bot.send_message(chat_id, random.choice(('Хорошо', 'Нормально', 'Неплохо',
+                                                 'Ниче', 'Пойдет', 'Ну так')) + ', ' +
+                                  random.choice(('а у тебя как?', 'а ты как?', 'а у тебя?')))
 
     if 'красиво' in text:
-        bot.send_message(chat_id, 'Ты вошла в мою грешную жи-изнь')
+        bot.send_message(chat_id, 'Ты вошла в мою грешную жиизнь')
+
+    if text == 'спасибо':
+        bot.send_message(chat_id, 'Обращайся <3')
+
+    if 'я не тебе' in text:
+        bot.send_message(chat_id, 'А кому?')
 
 
 bot.polling(none_stop=True, interval=0)
-
 

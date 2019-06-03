@@ -46,7 +46,7 @@ def till_tea(bot, message):
             skoka = 'нечучуть'
         if remains > 0:
             bot.send_message(message.chat.id, 'До вечернего чая осталось ' + skoka +
-                         ' (' + str(remains) + ' мин.)')
+                                              ' (' + str(remains) + ' мин.)')
         elif remains == 0:
             bot.send_message(message.chat.id, 'Вот щас самое время пить чай')
         else:
@@ -84,13 +84,13 @@ def send_supportive_sticker(bot, message):
 
 def naruto(bot, message):
     bot.send_message(message.chat.id, 'Собаки, я — Наруто Узумаки')
-    bot.send_message(message.chat.id, 'Да, и, кстати, я — будущий Хокаге')
+    """bot.send_message(message.chat.id, 'Да, и, кстати, я — будущий Хокаге')
     bot.send_message(message.chat.id, 'У меня всё круто, я же всё-таки Наруто')
     bot.send_message(message.chat.id, 'Ненавижу Орочимару и Кабуто')
     bot.send_message(message.chat.id, 'Знаю много джутсу, ненавижу бутсы')
     bot.send_message(message.chat.id, 'Лучше клонов, Расенгана не найдутся ')
     bot.send_message(message.chat.id, 'У меня фанаты, плюс я люблю Хинату')
-    bot.send_message(message.chat.id, 'Немало друзей, и однокомнатная хата')
+    bot.send_message(message.chat.id, 'Немало друзей, и однокомнатная хата')"""
 
 
 def get_weather_today(bot, message):
