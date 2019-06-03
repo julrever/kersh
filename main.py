@@ -100,6 +100,11 @@ def handle_text(message):
     if random.randint(0, 20) == 15:
         bot.send_message(chat_id, 'Денис, кстати, пидор')
 
+    if 'как дела' in text or 'а у тебя' in text or 'а ты как' in text:
+        bot.send_message(chat_id, random.choice(('Хорошо, ', 'Нормально, ', 'Неплохо, ',
+                                                 'Ниче, ', 'Пойдет, ', 'Ну так, ')) +
+                                  random.choice(('а у тебя как?', 'а ты как?')))
+
 
 bot.polling(none_stop=True, interval=0)
 
