@@ -9,6 +9,7 @@ def send_menu(bot, chat_id):
     today = str(datetime.datetime.today().date())
     if weekday == 5 or weekday == 6:
         bot.send_message(chat_id, 'А еще тебе чего?')
+        return
     else:
         try:
             img = open(today + '.jpg', 'rb')
@@ -46,6 +47,8 @@ def till_tea(bot, message):
         if remains > 0:
             bot.send_message(message.chat.id, 'До вечернего чая осталось ' + skoka +
                          ' (' + str(remains) + ' мин.)')
+        elif remains == 0:
+            bot.send_message(message.chat.id, 'Вот щас самое время пить чай')
         else:
             remains = str(-1 * remains)
             late_text = ('Вы охуели тут все? Уже ' + remains + ' мин. как чай. Мда, пиздец.',

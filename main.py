@@ -33,15 +33,15 @@ def handle_text(message):
             need_support(bot, message)
             break
 
-    if 'денис' in text:
-        bot.send_chat_action(chat_id, 'typing')
+    """if 'денис' in text:
         if random.choice((True, False)):
-            bot.send_message(chat_id, 'Денис, кстати, пидор')
+            bot.send_message(chat_id, 'Денис, кстати, пидор')"""
 
     if 'обидно вообще-то' in text:
         bot.send_chat_action(chat_id, 'typing')
         bot.send_message(chat_id, 'Блин, прости')
-        bot.send_sticker(chat_id, 'CAADAgADLAEAAlcuIwvSO0Q78q3rzAI')
+        if random.choice((True, False)):
+            bot.send_sticker(chat_id, 'CAADAgADLAEAAlcuIwvSO0Q78q3rzAI')
 
     if text == 'йоу':
         #naruto(bot, message)
@@ -93,6 +93,12 @@ def handle_text(message):
 
     if text[0:3] == 'рнд':
         bot.send_message(chat_id, random.choice(message.text[4:].split(',')))
+
+    if 'когда-то давно' in text:
+        bot.send_message(chat_id, 'Когда-то давно еще 4 народа жили в мире')
+
+    if random.randint(0, 20) == 15:
+        bot.send_message(chat_id, 'Денис, кстати, пидор')
 
 
 bot.polling(none_stop=True, interval=0)
