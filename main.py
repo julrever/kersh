@@ -49,7 +49,7 @@ def handle_text(message):
 
     if text == 'юля':
         if random.choice((True, False)):
-            bot.send_message(chat_id, 'Вы имели в виду Бля?')
+            bot.send_message(chat_id, 'Возможно, Вы имели в виду Бля')
 
     if text == 'что?' or text == 'че?' or text == 'что' or text == 'што':
         bot.send_chat_action(chat_id, 'typing')
@@ -97,7 +97,7 @@ def handle_text(message):
     if 'когда-то давно' in text:
         bot.send_message(chat_id, 'Когда-то давно еще 4 народа жили в мире')
 
-    if random.randint(0, 20) == 15:
+    if random.randint(0, 15) == 10:
         bot.send_message(chat_id, 'Денис, кстати, пидор')
 
     if 'как дела' in text or 'а у тебя' in text or 'а ты как' in text:

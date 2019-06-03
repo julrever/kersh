@@ -48,7 +48,7 @@ def weather_day(bot, chat_id, day):
 
 def set_emoji_weather(text):
     res = ''
-    if 'ясно' in text.lower():
+    if 'ясно' in text.lower() or 'солнечн' in text.lower():
         res += '☀️'
     if 'облачно' in text.lower() or 'пасмурн' in text.lower():
         res += '⛅️'
@@ -56,4 +56,6 @@ def set_emoji_weather(text):
         res += '🌧'
     if 'снег' in text.lower():
         res += '❄️'
+    if text == 'Очистить':
+        text = 'Ясно'
     return res + ' ' + text
