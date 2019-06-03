@@ -105,6 +105,9 @@ def handle_text(message):
                                                  'Ниче, ', 'Пойдет, ', 'Ну так, ')) +
                                   random.choice(('а у тебя как?', 'а ты как?')))
 
+    if 'красиво' in text:
+        bot.send_message(chat_id, 'Ты вошла в мою грешную жи-изнь')
+
 
 bot.polling(none_stop=True, interval=0)
 
