@@ -116,6 +116,9 @@ def handle_text(message):
     if 'я не тебе' in text:
         bot.send_message(chat_id, 'А кому?')
 
+    if 'обед' in text:
+        till_what(bot, chat_id, till='обеда', its_time='идти кушат', aim_time=LUNCH_TIME)
+
 
 bot.polling(none_stop=True, interval=0)
 
