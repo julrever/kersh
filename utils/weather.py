@@ -1,5 +1,6 @@
 import requests
 import json
+import datetime
 from googletrans import Translator
 translator = Translator()
 base_url = 'http://api.apixu.com/'
@@ -10,12 +11,12 @@ def weather_now(bot, chat_id):
     r = requests.post(base_url + 'v1/current.json?key=' + api_key + '&q=Petersburg,Ru')
     res = json.loads(r.text)['current']
     condition = translator.translate(res['condition']['text'], src='en', dest='ru').text
-    text = set_emoji_weather(condition) + \
-           '\nСейчас ' + str(res['temp_c']) + '°\n' \
-           'Ветерок: ' + str(res['wind_kph']) + ' км/ч\n' \
-           'Влажность: ' + str(res['humidity']) + '%\n' \
-           'Ощущается это все как ' + str(res['feelslike_c']) + '°'
-    bot.send_message(chat_id, text)
+    text = '⠀⠀' + set_emoji_weather(condition) + \
+           '\n*🌡Сейчас ' + str(res['temp_c']) + '°*\n' \
+           '💨Ветерок: ' + str(res['wind_kph']) + ' км/ч\n' \
+           '💦Влажность: ' + str(res['humidity']) + '%\n' \
+           '_Ощущается это все как ' + str(res['feelslike_c']) + '°_'
+    bot.send_message(chat_id, text, parse_mode='Markdown')
 
 
 def weather_week(bot, chat_id):
@@ -24,14 +25,14 @@ def weather_week(bot, chat_id):
     text = ''
     for i in range(0, 7):
         day = res[i]
-        text += day['date']
+        text += '⠀⠀⠀📅⠀_' + get_weekday(day['date']) + ', ' + day['date'] + '_'
         condition = translator.translate(day['day']['condition']['text'], src='en', dest='ru').text
         text += '\n' + set_emoji_weather(condition) + \
-                '\nМакс.: ' + str(day['day']['maxtemp_c']) + '°\n' \
-                'Мин.: ' + str(day['day']['mintemp_c']) + '°\n' \
-                'Влажность: ' + str(day['day']['avghumidity']) + '%\n' \
-                'Рассвет: ' + day['astro']['sunrise'] + ', закат: ' + day['astro']['sunset'] + '\n\n'
-    bot.send_message(chat_id, text)
+                '\n*🔺Макс.: ' + str(day['day']['maxtemp_c']) + '°*\n' \
+                '*🔻Мин.: ' + str(day['day']['mintemp_c']) + '°*\n' \
+                '💦Влажность: ' + str(day['day']['avghumidity']) + '%\n' \
+                '🌝 — ' + day['astro']['sunrise'] + ', 🌚 — ' + day['astro']['sunset'] + '\n\n'
+    bot.send_message(chat_id, text, parse_mode='Markdown')
 
 
 def weather_day(bot, chat_id, day):
@@ -39,11 +40,11 @@ def weather_day(bot, chat_id, day):
     res = json.loads(r.text)['forecast']['forecastday'][day]
     condition = translator.translate(res['day']['condition']['text'], src='en', dest='ru').text
     text = '\n' + set_emoji_weather(condition) + \
-           '\nМакс.: ' + str(res['day']['maxtemp_c']) + '°\n' \
-           'Мин.: ' + str(res['day']['mintemp_c']) + '°\n' \
-           'Влажность: ' + str(res['day']['avghumidity']) + '%\n' \
-           'Рассвет: ' + res['astro']['sunrise'] + ', закат: ' + res['astro']['sunset'] + '\n\n'
-    bot.send_message(chat_id, text)
+           '\n*🔺Макс.: ' + str(res['day']['maxtemp_c']) + '°*\n' \
+           '*🔻Мин.: ' + str(res['day']['mintemp_c']) + '°*\n' \
+           '💦Влажность: ' + str(res['day']['avghumidity']) + '%\n' \
+           '🌝 — ' + res['astro']['sunrise'] + ', 🌚 — ' + res['astro']['sunset'] + '\n\n'
+    bot.send_message(chat_id, text, parse_mode='Markdown')
 
 
 def set_emoji_weather(text):
@@ -60,8 +61,26 @@ def set_emoji_weather(text):
         res += '🌩'
     if text == 'Очистить':
         text = 'Ясно'
-    return res + ' ' + text
+    return res + ' _' + text + '_'
 
+
+def get_weekday(date):
+    weekday = datetime.datetime.strptime(date, '%Y-%m-%d').weekday()
+    if weekday == 0:
+        return 'Пн'
+    elif weekday == 1:
+        return 'Вт'
+    elif weekday == 2:
+        return 'Ср'
+    elif weekday == 3:
+        return 'Чт'
+    elif weekday == 4:
+        return 'Пт'
+    elif weekday == 5:
+        return 'Сб'
+    elif weekday == 6:
+        return 'Вс'
+    return ''
 
 """         OLD VERSION
 

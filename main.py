@@ -1,4 +1,6 @@
 import telebot
+
+from utils.cinema import now_in_cinemas
 from utils.weather import *
 from utils.support import need_support
 from utils.time import *
@@ -118,6 +120,11 @@ def handle_text(message):
 
     if random.randint(0, 20) == 10:
         bot.send_message(chat_id, 'Дима, кстати, пидор')
+
+    for cinema in CINEMA:
+        if cinema in text:
+            now_in_cinemas(bot, chat_id)
+            break
 
 
 bot.polling(none_stop=True, interval=0)
