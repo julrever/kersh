@@ -18,5 +18,5 @@ def now_in_cinemas(bot, chat_id):
         text += '🕐_' + dur[-2] + ' ' + dur[-1] + '_'
         text += ' 🔗[ссылка](http://kinopoisk.ru' + names[i].attrs['href'] + ')\n\n'
 
-    bot.send_message(chat_id, text.replace('...', ''), parse_mode='Markdown')
+    bot.send_message(chat_id, text.replace('...', ''), parse_mode='Markdown', disable_web_page_preview=True)
 
