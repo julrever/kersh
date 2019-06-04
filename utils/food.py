@@ -17,10 +17,10 @@ def send_menu(bot, chat_id):
             session = HTMLSession()
             r = session.get('http://art-afrika.ru/lunch/')
             pic = r.html.find('#dle-content', first=True).find('a', first=True).attrs['href']
-            f = open('../africa/' + today + '.jpg', 'wb')
+            f = open('/africa/' + today + '.jpg', 'wb')
             f.write(urllib.request.urlopen(pic).read())
             f.close()
-            img = open('../africa/' + today + '.jpg', 'rb')
+            img = open('/africa/' + today + '.jpg', 'rb')
     bot.send_photo(chat_id, img)
     img.close()
 

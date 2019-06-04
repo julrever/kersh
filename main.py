@@ -7,6 +7,11 @@ from utils.food import *
 bot = telebot.TeleBot('874668678:AAFiMpL4Vj6uIfN71Py8PRpXTFff-K9_qRc')
 
 
+@bot.message_handler(content_types=['left_chat_participant'])
+def left_chat(message):
+    bot.send_sticker(message.chat.id, 'CAADAgADcgQAAqtWmgwrxk5UbREMewI')
+
+
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
     text = message.text.lower()
