@@ -9,8 +9,6 @@ bot = telebot.TeleBot('874668678:AAFiMpL4Vj6uIfN71Py8PRpXTFff-K9_qRc')
 
 @bot.message_handler(content_types=['left_chat_participant'])
 def left_chat(message):
-    print(message)
-    print('test666666666666')
     bot.send_sticker(message.chat.id, 'CAADAgADcgQAAqtWmgwrxk5UbREMewI')
 
 
@@ -50,7 +48,7 @@ def handle_text(message):
 
     if text == 'юля':
         if random.choice((True, False)):
-            bot.send_message(chat_id, 'Возможно, Вы имели в виду Бля')
+            bot.send_message(chat_id, 'Возможно, вы имели в виду Бля')
 
     if text == 'что?' or text == 'че?' or text == 'что' or text == 'што':
         bot.send_chat_action(chat_id, 'typing')
