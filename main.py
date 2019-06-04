@@ -1,6 +1,8 @@
 import telebot
-from utils import *
-from weather import *
+from utils.weather import *
+from utils.support import need_support
+from utils.time import *
+from utils.food import *
 
 bot = telebot.TeleBot('874668678:AAFiMpL4Vj6uIfN71Py8PRpXTFff-K9_qRc')
 
@@ -16,7 +18,7 @@ def handle_text(message):
 
     for tea in TEA:
         if tea in text:
-            till_tea(bot, message)
+            till_what(bot, chat_id)
             break
 
     if text[0] == 'ч' and text[-1] == 'й' and text != 'чай':
@@ -25,26 +27,19 @@ def handle_text(message):
             if text[i] != 'а':
                 only_a = False
         if only_a:
-            till_tea(bot, message)
+            till_what(bot, chat_id)
 
     for support in SUPPORT:
         if support in text:
             bot.send_chat_action(chat_id, 'typing')
-            need_support(bot, message)
+            need_support(bot, chat_id)
             break
-
-    """if 'денис' in text:
-        if random.choice((True, False)):
-            bot.send_message(chat_id, 'Денис, кстати, пидор')"""
 
     if 'обидно вообще-то' in text:
         bot.send_chat_action(chat_id, 'typing')
         bot.send_message(chat_id, 'Блин, прости')
         if random.choice((True, False)):
             bot.send_sticker(chat_id, 'CAADAgADLAEAAlcuIwvSO0Q78q3rzAI')
-
-    if text == 'йоу':
-        naruto(bot, message)
 
     if text == 'юля':
         if random.choice((True, False)):
@@ -72,7 +67,7 @@ def handle_text(message):
 
     if text == 'куда жрать':
         bot.send_chat_action(chat_id, 'typing')
-        where_to_eat(bot, message)
+        where_to_eat(bot, chat_id)
 
     if 'болот' in text:
         bot.send_chat_action(chat_id, 'typing')
@@ -99,9 +94,6 @@ def handle_text(message):
     if 'когда-то давно' in text:
         bot.send_message(chat_id, 'Когда-то давно еще 4 народа жили в мире')
 
-    if random.randint(0, 15) == 10:
-        bot.send_message(chat_id, 'Денис, кстати, пидор')
-
     if 'как дела' in text or 'а у тебя' in text or 'а ты как' in text:
         bot.send_message(chat_id, random.choice(('Хорошо', 'Нормально', 'Неплохо',
                                                  'Ниче', 'Пойдет', 'Ну так')) + ', ' +
@@ -118,6 +110,9 @@ def handle_text(message):
 
     if 'обед' in text:
         till_what(bot, chat_id, till='обеда', its_time='идти кушат', aim_time=LUNCH_TIME)
+
+    if random.randint(0, 19) == 10:
+        bot.send_message(chat_id, 'Денис, кстати, пидор')
 
 
 bot.polling(none_stop=True, interval=0)
