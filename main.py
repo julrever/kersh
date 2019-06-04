@@ -116,8 +116,8 @@ def handle_text(message):
     if 'обед' in text:
         till_what(bot, chat_id, till='обеда', its_time='идти кушат', aim_time=LUNCH_TIME)
 
-    if random.randint(0, 100) == 10:
-        bot.send_message(chat_id, 'Денис, кстати, пидор <3')
+    if random.randint(0, 20) == 10:
+        bot.send_message(chat_id, 'Дима, кстати, пидор')
 
 
 bot.polling(none_stop=True, interval=0)
