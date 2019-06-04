@@ -9,6 +9,8 @@ bot = telebot.TeleBot('874668678:AAFiMpL4Vj6uIfN71Py8PRpXTFff-K9_qRc')
 
 @bot.message_handler(content_types=['left_chat_participant'])
 def left_chat(message):
+    print(message)
+    print('test666666666666')
     bot.send_sticker(message.chat.id, 'CAADAgADcgQAAqtWmgwrxk5UbREMewI')
 
 
@@ -116,8 +118,8 @@ def handle_text(message):
     if 'обед' in text:
         till_what(bot, chat_id, till='обеда', its_time='идти кушат', aim_time=LUNCH_TIME)
 
-    if random.randint(0, 19) == 10:
-        bot.send_message(chat_id, 'Денис, кстати, пидор')
+    if random.randint(0, 100) == 10:
+        bot.send_message(chat_id, 'Денис, кстати, пидор <3')
 
 
 bot.polling(none_stop=True, interval=0)
