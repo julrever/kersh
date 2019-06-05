@@ -118,8 +118,8 @@ def handle_text(message):
     if 'обед' in text:
         till_what(bot, chat_id, till='обеда', its_time='идти кушат', aim_time=LUNCH_TIME)
 
-    if random.randint(0, 20) == 10:
-        bot.send_message(chat_id, 'Дима, кстати, пидор')
+    if random.randint(0, 150) == 10:
+        bot.send_message(chat_id, 'Денис, кстати, пидор')
 
     for cinema in CINEMA:
         if cinema in text:
