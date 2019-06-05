@@ -5,6 +5,7 @@ from utils.weather import *
 from utils.support import need_support
 from utils.time import *
 from utils.food import *
+from advice import *
 
 bot = telebot.TeleBot('874668678:AAFiMpL4Vj6uIfN71Py8PRpXTFff-K9_qRc')
 
@@ -125,6 +126,9 @@ def handle_text(message):
         if cinema in text:
             now_in_cinemas(bot, chat_id)
             break
+
+    if text == 'сос мыслом' or text == '#deep' or text == 'совет':
+        bot.send_message(chat_id, random.choice(ADVICES))
 
 
 bot.polling(none_stop=True, interval=0)
