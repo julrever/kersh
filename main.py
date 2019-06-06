@@ -1,5 +1,4 @@
 import telebot
-
 from utils.cinema import now_in_cinemas
 from utils.weather import *
 from utils.support import need_support
@@ -118,6 +117,18 @@ def handle_text(message):
 
     if 'обед' in text:
         till_what(bot, chat_id, till='обеда', its_time='идти кушат', aim_time=LUNCH_TIME)
+
+    for full in FULL:
+        if full in text:
+            time = datetime.datetime.now(datetime.timezone.utc).strftime(TIME_FORMAT)
+            now_time = datetime.datetime.strptime(str(time), TIME_FORMAT)
+            if LUNCH_TIME < now_time:
+                bot.send_message(chat_id, 'Заебумба!')
+            else:
+                bot.send_message(chat_id, random.choice(('Щас бы обожраться до обеда',
+                                                         'Крыса!')))
+                bot.send_sticker(chat_id, random.choice(('CAADAgADRAADA12hFzJgg4GdHZZtAg',
+                                                         'CAADAgADKAADA12hF6cAAfxwHfAUzQI')))
 
     if random.randint(0, 150) == 10:
         bot.send_message(chat_id, 'Дима, кстати, пидор')
