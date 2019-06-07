@@ -72,7 +72,7 @@ def handle_text(message):
         elif 'завтра' in text:
             weather_day(bot, chat_id, 1)
 
-    if text == 'куда жрать':
+    if text == 'куда жрать' or text == 'куда кушать' or text == 'где кушать':
         bot.send_chat_action(chat_id, 'typing')
         where_to_eat(bot, chat_id)
 
