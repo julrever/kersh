@@ -11,7 +11,7 @@ def weather_now(bot, chat_id):
     r = requests.post(base_url + 'v1/current.json?key=' + api_key + '&q=Petersburg,Ru')
     res = json.loads(r.text)['current']
     condition = translator.translate(res['condition']['text'], src='en', dest='ru').text
-    text = '⠀⠀' + set_emoji_weather(condition) + \
+    text = set_emoji_weather(condition) + \
            '\n*🌡Сейчас ' + str(res['temp_c']) + '°*\n' \
            '💨Ветерок: ' + str(res['wind_kph']) + ' км/ч\n' \
            '💦Влажность: ' + str(res['humidity']) + '%\n' \

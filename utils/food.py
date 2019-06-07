@@ -26,4 +26,4 @@ def send_menu(bot, chat_id):
 
 
 def where_to_eat(bot, chat_id):
-    bot.send_message(chat_id, random.choice(PLACES_TO_EAT))
+    bot.send_message(chat_id, random.choice(PLACES_TO_EAT), parse_mode='Markdown')
