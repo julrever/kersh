@@ -26,4 +26,7 @@ def send_menu(bot, chat_id):
 
 
 def where_to_eat(bot, chat_id):
-    bot.send_message(chat_id, random.choice(PLACES_TO_EAT), parse_mode='Markdown')
+    where = random.choice(PLACES_TO_EAT)
+    bot.send_message(chat_id, where, parse_mode='Markdown', disable_web_page_preview=True)
+    if where == 'Африка':
+        send_menu(bot, chat_id)
