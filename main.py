@@ -39,7 +39,8 @@ def handle_text(message):
     for support in SUPPORT:
         if support in text:
             bot.send_chat_action(chat_id, 'typing')
-            need_support(bot, chat_id)
+            bot.send_message(chat_id, 'В среду выходной')
+            #need_support(bot, chat_id)
             break
 
     if 'обидно вообще-то' in text:

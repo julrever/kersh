@@ -18,6 +18,5 @@ PLACES_TO_EAT = ('Африка',
                  '[Тайяки](https://eda.yandex/restaurant/tayaki_spb2)',
                  '[Машита](http://mashita-ramen.ru/menu.php)',
                  'Тррррррдельник',
-                 '[Кореана](https://www.koreanalight.ru/menyu-1)',
-                 'Манты')
+                 '[Кореана](https://www.koreanalight.ru/menyu-1)')
 FULL = ('я объивс', 'я объевс', 'обожравс', 'обкуша')
