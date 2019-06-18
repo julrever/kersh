@@ -7,7 +7,8 @@ def need_support(bot, chat_id):
 
 
 def send_puppies(bot, chat_id):
-    support_img = open('support.jpg', 'rb')
+    img = random.choice(('support.jpg', 'support2.jpg', 'support3.jpg'))
+    support_img = open(img, 'rb')
     bot.send_photo(chat_id, support_img)
     support_img.close()
 
