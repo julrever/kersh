@@ -20,3 +20,4 @@ PLACES_TO_EAT = ('Африка',
                  'Тррррррдельник',
                  '[Кореана](https://www.koreanalight.ru/menyu-1)')
 FULL = ('объивс', 'объевс', 'обожравс', 'обкуша')
+THE_DAY = datetime.date(2019, 8, 17)

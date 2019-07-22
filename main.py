@@ -150,15 +150,25 @@ def handle_text(message):
         support_img.close()
 
 
-def days_til_freedom(message):
+def days_til_freedom():
     while True:
-        if datetime.datetime.now().strftime('%H:%M:%S')[:2] == '11':
-            bot.send_message(message.chat.id, 'hi')
-        bot.send_message(message.chat.id, 'keep calm im testing')
-        time.sleep(100)
+        if datetime.datetime.now().strftime('%H:%M:%S')[:5] == '14:20':
+            days = (THE_DAY - datetime.datetime.now().date()).days
+            if abs(days) % 10 == 1:
+                str_days = str(days) + ' день'
+            elif abs(days) % 10 in (2, 3, 4) and (abs(days) % 100 > 15 or abs(days) % 100 < 10):
+                str_days = str(days) + ' дня'
+            else:
+                str_days = str(days) + ' дней'
+
+            bot.send_message(-332306673, 'Через ' + str_days + ' Юля будет свободна, как ветер')
+            if days > -20:
+                bot.send_message(-332306673, 'Убейте меня')
+        time.sleep(60)
 
 
-p1 = Process(target=days_til_freedom, args=())
-p1.start()
-bot.polling(none_stop=True, interval=0)
+if __name__ == '__main__':
+    p1 = Process(target=days_til_freedom, args=())
+    p1.start()
+    bot.polling(none_stop=True, interval=0)
 
