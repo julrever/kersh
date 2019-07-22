@@ -1,4 +1,6 @@
 import telebot
+import time
+from multiprocessing import Process
 from utils.cinema import now_in_cinemas
 from utils.weather import *
 from utils.support import need_support
@@ -148,5 +150,15 @@ def handle_text(message):
         support_img.close()
 
 
+def days_til_freedom(message):
+    while True:
+        if datetime.datetime.now().strftime('%H:%M:%S')[:2] == '11':
+            bot.send_message(message.chat.id, 'hi')
+        'test'
+        time.sleep(100)
+
+
+p1 = Process(target=days_til_freedom, args=())
+p1.start()
 bot.polling(none_stop=True, interval=0)
 
