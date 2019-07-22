@@ -109,7 +109,7 @@ def handle_text(message):
     if 'красиво' in text:
         bot.send_message(chat_id, 'Ты вошла в мою грешную жиизнь')
 
-    if text == 'спасибо':
+    if text == 'спасибо' or ('спасибо' in text and 'керш' in text):
         bot.send_message(chat_id, 'Обращайся <3')
 
     if 'я не тебе' in text:
@@ -123,6 +123,7 @@ def handle_text(message):
             time = datetime.datetime.now(datetime.timezone.utc).strftime(TIME_FORMAT)
             now_time = datetime.datetime.strptime(str(time), TIME_FORMAT)
             if LUNCH_TIME < now_time:
+
                 bot.send_message(chat_id, 'Заебумба!')
             else:
                 bot.send_message(chat_id, random.choice(('Щас бы обожраться до обеда',
