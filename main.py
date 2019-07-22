@@ -154,7 +154,7 @@ def days_til_freedom(message):
     while True:
         if datetime.datetime.now().strftime('%H:%M:%S')[:2] == '11':
             bot.send_message(message.chat.id, 'hi')
-        'test'
+        bot.send_message(message.chat.id, 'keep calm im testing')
         time.sleep(100)
 
 
