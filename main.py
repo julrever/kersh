@@ -152,7 +152,7 @@ def handle_text(message):
 
 def days_til_freedom():
     while True:
-        if datetime.datetime.now().strftime('%H:%M:%S')[:5] == '14:20':
+        if datetime.datetime.now(datetime.timezone.utc).strftime('%H:%M:%S')[:5] == '10:10':
             days = (THE_DAY - datetime.datetime.now().date()).days
             if abs(days) % 10 == 1:
                 str_days = str(days) + ' день'
@@ -162,7 +162,7 @@ def days_til_freedom():
                 str_days = str(days) + ' дней'
 
             bot.send_message(-332306673, 'Через ' + str_days + ' Юля будет свободна, как ветер')
-            if days > -20:
+            if days < -20:
                 bot.send_message(-332306673, 'Убейте меня')
         time.sleep(60)
 
