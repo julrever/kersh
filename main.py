@@ -149,6 +149,9 @@ def handle_text(message):
         bot.send_photo(chat_id, support_img)
         support_img.close()
 
+    if text == 'керш':
+        bot.send_message(chat_id, 'А?')
+
 
 def days_til_freedom():
     while True:
