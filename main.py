@@ -156,20 +156,20 @@ def handle_text(message):
 def days_til_freedom():
     while True:
         time_now = datetime.datetime.now(datetime.timezone.utc).strftime('%H:%M:%S')[:5]
-        if time_now == '08:41':
-            bot.send_message(-332306673, random.choice('Утро в хату',
-                                                       'Керш в здании') + ', пацаны и пацанессы! Погодка на сегодня:')
+        if time_now == '08:46':
+            bot.send_message(-332306673, random.choice(('Утро в хату',
+                                                       'Керш в здании')) + ', пацаны и пацанессы! Погодка на сегодня:')
             weather_day(bot, -332306673, 0)
             weekday = datetime.datetime.today().weekday()
             if weekday != 5 and weekday != 6:
-                bot.send_message(-332306673, random.choice('И меню Африки', 'А можно еще меню Африки? - спросите вы'))
+                bot.send_message(-332306673, random.choice(('И меню Африки', 'А можно еще меню Африки? - спросите вы')))
                 send_menu(bot, -332306673)
-                bot.send_message(-332306673, random.choice('Хорошего дня, пидоры <3', 'Не благодарите',
-                                                           'Всё, работаем!'))
+                bot.send_message(-332306673, random.choice(('Хорошего дня, пидоры <3', 'Не благодарите',
+                                                           'Всё, работаем!')))
         elif time_now == '16:00':
             bot.send_message(-332306673, 'Вечер в хату, арестанты! Погодка на завтра:')
             weather_day(bot, -332306673, 1)
-        elif time_now == '08:42':
+        elif time_now == '08:47':
             days = (THE_DAY - datetime.datetime.now().date()).days
             if abs(days) % 10 == 1:
                 str_days = str(days) + ' день'
