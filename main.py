@@ -192,7 +192,6 @@ def days_til_freedom():
 
         links = get_links()
 
-        bot.send_message(-356965018, 'ща ' + str(len(links)))
         if len(links) > len_links[0]:
             bot.send_message(-356965018, 'https://guz.ru' + links[-1])
             len_links[0] = len(links)
