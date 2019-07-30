@@ -7,8 +7,10 @@ from utils.support import need_support
 from utils.time import *
 from utils.food import *
 from advice import *
+from test import *
 
 bot = telebot.TeleBot('874668678:AAFiMpL4Vj6uIfN71Py8PRpXTFff-K9_qRc')
+len_links = [len(get_links())]
 
 
 @bot.message_handler(content_types=['left_chat_participant'])
@@ -187,6 +189,13 @@ def days_til_freedom():
         elif time_now == '16:00':
             bot.send_message(-332306673, 'Вечер в хату, арестанты! Погодка на завтра:')
             weather_day(bot, -332306673, 1)
+
+        links = get_links()
+
+        bot.send_message(-356965018, 'ща ' + str(len(links)))
+        if len(links) > len_links[0]:
+            bot.send_message(-356965018, 'https://guz.ru' + links[-1])
+            len_links[0] = len(links)
         time.sleep(60)
 
 
