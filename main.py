@@ -7,10 +7,9 @@ from utils.support import need_support
 from utils.time import *
 from utils.food import *
 from advice import *
-from test import *
 
 bot = telebot.TeleBot('874668678:AAFiMpL4Vj6uIfN71Py8PRpXTFff-K9_qRc')
-len_links = [len(get_links())]
+# len_links = [len(get_links())]
 
 
 @bot.message_handler(content_types=['left_chat_participant'])
@@ -161,9 +160,8 @@ def days_til_freedom():
     while True:
         time_now = datetime.datetime.now(datetime.timezone.utc).strftime('%H:%M:%S')[:5]
         if time_now == '06:00':
-            bot.send_message(-356965018, 'Я все еще работаю, результатов все еще нет (' + str(len_links[0]) + ')')
-            bot.send_message(-332306673, random.choice(('Утро в хату',
-                                                       'Керш в здании')) + ', пацаны и пацанессы! Погодка на сегодня:')
+            bot.send_message(-332306673, random.choice(('Утро в хату', 'Дарова', 'Керш в здании')) +
+                             random.choice((', пацаны и пацанессы', 'собаки')) + '! Погодка на сегодня:')
             weather_day(bot, -332306673, 0)
             weekday = datetime.datetime.today().weekday()
             if weekday != 5 and weekday != 6:
@@ -190,15 +188,14 @@ def days_til_freedom():
         elif time_now == '16:00':
             bot.send_message(-332306673, 'Вечер в хату, арестанты! Погодка на завтра:')
             weather_day(bot, -332306673, 1)
-            bot.send_message(-356965018, 'Я все еще работаю, результатов все еще нет (' + str(len_links[0]) + ')')
 
-        links = get_links()
+        """links = get_links()
         diff = len(links) - len_links[0]
         if diff > 0:
             bot.send_message(-356965018, 'Опаньки!')
             for i in range(1, diff+1):
                 bot.send_message(-356965018, 'https://guz.ru' + links[-i])
-            len_links[0] = len(links)
+            len_links[0] = len(links)"""
         time.sleep(60)
 
 
