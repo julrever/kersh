@@ -169,7 +169,6 @@ def days_til_freedom():
                 send_menu(bot, -332306673)
                 bot.send_message(-332306673, random.choice(('Хорошего дня, пидоры <3', 'Не благодарите',
                                                            'Всё, работаем!')))
-
             time.sleep(20)
             days = (THE_DAY - datetime.datetime.now().date()).days
             if abs(days) % 10 == 1:
@@ -188,6 +187,13 @@ def days_til_freedom():
         elif time_now == '16:00':
             bot.send_message(-332306673, 'Вечер в хату, арестанты! Погодка на завтра:')
             weather_day(bot, -332306673, 1)
+        elif time_now == '11:00':
+            bot.send_message(-332306673, random.choice(('Ну всё, пора кушат', 'Обедать будем?')))
+        elif time_now == '14:00':
+            bot.send_message(-332306673, random.choice(('Надеюсь вы уже пьёте чай', 'Тут как бы чай',
+                                                        'Приглашаю на чашечку чая', 'Привет) Мурр, кофе бум?',
+                                                        'Идемте пить чай',
+                                                        'Ну что, работнички. По чайку? И туц туц туц по клаве)))')))
 
         """links = get_links()
         diff = len(links) - len_links[0]
