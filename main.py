@@ -161,7 +161,7 @@ def days_til_freedom():
         time_now = datetime.datetime.now(datetime.timezone.utc).strftime('%H:%M:%S')[:5]
         if time_now == '06:00':
             bot.send_message(-332306673, random.choice(('Утро в хату', 'Дарова', 'Керш в здании')) +
-                             random.choice((', пацаны и пацанессы', 'собаки')) + '! Погодка на сегодня:')
+                             random.choice((', пацаны и пацанессы', ', собаки')) + '! Погодка на сегодня:')
             weather_day(bot, -332306673, 0)
             weekday = datetime.datetime.today().weekday()
             if weekday != 5 and weekday != 6:
@@ -188,9 +188,13 @@ def days_til_freedom():
             bot.send_message(-332306673, 'Вечер в хату, арестанты! Погодка на завтра:')
             weather_day(bot, -332306673, 1)
         elif time_now == '11:00':
-            bot.send_message(-332306673, random.choice(('Ну всё, пора кушат', 'Обедать будем?')))
+            weekday = datetime.datetime.today().weekday()
+            if weekday != 5 and weekday != 6:
+                bot.send_message(-332306673, random.choice(('Ну всё, пора кушат', 'Обедать будем?')))
         elif time_now == '14:00':
-            bot.send_message(-332306673, random.choice(('Надеюсь вы уже пьёте чай', 'Тут как бы чай',
+            weekday = datetime.datetime.today().weekday()
+            if weekday != 5 and weekday != 6:
+                bot.send_message(-332306673, random.choice(('Надеюсь вы уже пьёте чай', 'Тут как бы чай',
                                                         'Приглашаю на чашечку чая', 'Привет) Мурр, кофе бум?',
                                                         'Идемте пить чай',
                                                         'Ну что, работнички. По чайку? И туц туц туц по клаве)))')))
