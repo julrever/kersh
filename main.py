@@ -159,15 +159,15 @@ def handle_text(message):
 def days_til_freedom():
     while True:
         time_now = datetime.datetime.now(datetime.timezone.utc).strftime('%H:%M:%S')[:5]
-        if time_now == '06:00':
-            bot.send_message(-332306673, random.choice(('Утро в хату', 'Дарова', 'Керш в здании')) +
+        if time_now == '08:16':
+            bot.send_message(-1001378368946, random.choice(('Утро в хату', 'Дарова', 'Керш в здании')) +
                              random.choice((', пацаны и пацанессы', ', собаки')) + '! Погодка на сегодня:')
-            weather_day(bot, -332306673, 0)
+            weather_day(bot, -1001378368946, 0)
             weekday = datetime.datetime.today().weekday()
             if weekday != 5 and weekday != 6:
-                bot.send_message(-332306673, random.choice(('И меню Африки', 'А можно еще меню Африки? - спросите вы')))
-                send_menu(bot, -332306673)
-                bot.send_message(-332306673, random.choice(('Хорошего дня, пидоры <3', 'Не благодарите',
+                bot.send_message(-1001378368946, random.choice(('И меню Африки', 'А можно еще меню Африки? - спросите вы')))
+                send_menu(bot, -1001378368946)
+                bot.send_message(-1001378368946, random.choice(('Хорошего дня, пидоры <3', 'Не благодарите',
                                                            'Всё, работаем!')))
             time.sleep(20)
             days = (THE_DAY - datetime.datetime.now().date()).days
@@ -178,34 +178,27 @@ def days_til_freedom():
             else:
                 str_days = str(days) + ' дней'
 
-            bot.send_message(-332306673, 'А через ' + str_days + ' Юля будет свободна, как ветер')
+            bot.send_message(-1001378368946, 'А через ' + str_days + ' Юля будет свободна, как ветер')
             if days < -20:
-                bot.send_message(-332306673, 'Убейте меня')
+                bot.send_message(-1001378368946, 'Убейте меня')
             if days < -50:
                 time.sleep(10)
-                bot.send_message(-332306673, 'Пожалуйста')
+                bot.send_message(-1001378368946, 'Пожалуйста')
         elif time_now == '16:00':
-            bot.send_message(-332306673, 'Вечер в хату, арестанты! Погодка на завтра:')
-            weather_day(bot, -332306673, 1)
+            bot.send_message(-1001378368946, 'Вечер в хату, арестанты! Погодка на завтра:')
+            weather_day(bot, -1001378368946, 1)
         elif time_now == '11:00':
             weekday = datetime.datetime.today().weekday()
             if weekday != 5 and weekday != 6:
-                bot.send_message(-332306673, random.choice(('Ну всё, пора кушат', 'Обедать будем?')))
+                bot.send_message(-1001378368946, random.choice(('Ну всё, пора кушат', 'Обедать будем?')))
         elif time_now == '14:00':
             weekday = datetime.datetime.today().weekday()
             if weekday != 5 and weekday != 6:
-                bot.send_message(-332306673, random.choice(('Надеюсь вы уже пьёте чай', 'Тут как бы чай',
+                bot.send_message(-1001378368946, random.choice(('Надеюсь вы уже пьёте чай', 'Тут как бы чай',
                                                         'Приглашаю на чашечку чая', 'Привет) Мурр, кофе бум?',
                                                         'Идемте пить чай',
                                                         'Ну что, работнички. По чайку? И туц туц туц по клаве)))')))
 
-        """links = get_links()
-        diff = len(links) - len_links[0]
-        if diff > 0:
-            bot.send_message(-356965018, 'Опаньки!')
-            for i in range(1, diff+1):
-                bot.send_message(-356965018, 'https://guz.ru' + links[-i])
-            len_links[0] = len(links)"""
         time.sleep(60)
 
 
