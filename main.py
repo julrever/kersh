@@ -159,7 +159,7 @@ def handle_text(message):
 def days_til_freedom():
     while True:
         time_now = datetime.datetime.now(datetime.timezone.utc).strftime('%H:%M:%S')[:5]
-        if time_now == '08:16':
+        if time_now == '06:00':
             bot.send_message(-1001378368946, random.choice(('Утро в хату', 'Дарова', 'Керш в здании')) +
                              random.choice((', пацаны и пацанессы', ', собаки')) + '! Погодка на сегодня:')
             weather_day(bot, -1001378368946, 0)
@@ -179,9 +179,9 @@ def days_til_freedom():
                 str_days = str(days) + ' дней'
 
             bot.send_message(-1001378368946, 'А через ' + str_days + ' Юля будет свободна, как ветер')
-            if days < -20:
+            if days < -5:
                 bot.send_message(-1001378368946, 'Убейте меня')
-            if days < -50:
+            if days < -10:
                 time.sleep(10)
                 bot.send_message(-1001378368946, 'Пожалуйста')
         elif time_now == '16:00':
