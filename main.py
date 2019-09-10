@@ -178,15 +178,16 @@ def days_til_freedom():
             else:
                 str_days = str(days) + ' дней'
 
-            bot.send_message(-1001378368946, 'А через ' + str_days + ' Юля будет свободна, как ветер')
+            '''bot.send_message(-1001378368946, 'А через ' + str_days + ' Юля будет свободна, как ветер')
             if days < -5:
                 bot.send_message(-1001378368946, 'Убейте меня')
             if days < -10:
                 time.sleep(10)
-                bot.send_message(-1001378368946, 'Пожалуйста')
+                bot.send_message(-1001378368946, 'Пожалуйста')'''
         elif time_now == '16:00':
             bot.send_message(-1001378368946, 'Вечер в хату, арестанты! Погодка на завтра:')
             weather_day(bot, -1001378368946, 1)
+            bot.send_message(-1001378368946, 'Денис, сука, где скетчи?')
         elif time_now == '11:00':
             weekday = datetime.datetime.today().weekday()
             if weekday != 5 and weekday != 6:
