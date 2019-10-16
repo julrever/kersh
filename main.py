@@ -64,7 +64,7 @@ def handle_text(message):
         no = ('Пидора ответ, хахаха', 'Дениса ответ')
         bot.send_message(chat_id, random.choice(no))
 
-    if 'погод' in text:
+    '''if 'погод' in text:
         bot.send_chat_action(chat_id, 'typing')
         if 'сейчас' in text or 'ща' in text:
             weather_now(bot, chat_id)
@@ -73,7 +73,7 @@ def handle_text(message):
         if 'послезавтра' in text:
             weather_day(bot, chat_id, 2)
         elif 'завтра' in text:
-            weather_day(bot, chat_id, 1)
+            weather_day(bot, chat_id, 1)'''
 
     if text == 'куда жрать' or text == 'куда кушать' or text == 'где кушать':
         bot.send_chat_action(chat_id, 'typing')
@@ -161,15 +161,15 @@ def days_til_freedom():
         time_now = datetime.datetime.now(datetime.timezone.utc).strftime('%H:%M:%S')[:5]
         if time_now == '06:00':
             bot.send_message(-1001378368946, random.choice(('Утро в хату', 'Дарова', 'Керш в здании')) +
-                             random.choice((', пацаны и пацанессы', ', собаки')) + '! Погодка на сегодня:')
-            weather_day(bot, -1001378368946, 0)
+                             random.choice((', пацаны и пацанессы', ', собаки')) + '!')
+            '''weather_day(bot, -1001378368946, 0)'''
             weekday = datetime.datetime.today().weekday()
             if weekday != 5 and weekday != 6:
-                bot.send_message(-1001378368946, random.choice(('И меню Африки', 'А можно еще меню Африки? - спросите вы')))
+                bot.send_message(-1001378368946, random.choice(('Меню Африки:', 'А можно меню Африки? - спросите вы')))
                 send_menu(bot, -1001378368946)
                 bot.send_message(-1001378368946, random.choice(('Хорошего дня, пидоры <3', 'Не благодарите',
                                                            'Всё, работаем!')))
-            time.sleep(20)
+            '''time.sleep(20)
             days = (THE_DAY - datetime.datetime.now().date()).days
             if abs(days) % 10 == 1:
                 str_days = str(days) + ' день'
@@ -178,15 +178,15 @@ def days_til_freedom():
             else:
                 str_days = str(days) + ' дней'
 
-            '''bot.send_message(-1001378368946, 'А через ' + str_days + ' Юля будет свободна, как ветер')
+            bot.send_message(-1001378368946, 'А через ' + str_days + ' Юля будет свободна, как ветер')
             if days < -5:
                 bot.send_message(-1001378368946, 'Убейте меня')
             if days < -10:
                 time.sleep(10)
                 bot.send_message(-1001378368946, 'Пожалуйста')'''
         elif time_now == '16:00':
-            bot.send_message(-1001378368946, 'Вечер в хату, арестанты! Погодка на завтра:')
-            weather_day(bot, -1001378368946, 1)
+            '''bot.send_message(-1001378368946, 'Вечер в хату, арестанты! Погодка на завтра:')
+            weather_day(bot, -1001378368946, 1)'''
             bot.send_message(-1001378368946, 'Денис, сука, где скетчи?')
         elif time_now == '11:00':
             weekday = datetime.datetime.today().weekday()
