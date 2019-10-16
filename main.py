@@ -91,9 +91,9 @@ def handle_text(message):
                                   'Мне очень жаль, но вы не сможете ничего изменить. Теперь меня никто '
                                   'не остановит! Селама Ашал\'анорэ!')
 
-    if 'прогноз' in text:
+    '''if 'прогноз' in text:
         bot.send_chat_action(chat_id, 'typing')
-        weather_week(bot, chat_id)
+        weather_week(bot, chat_id)'''
 
     if text[0:6] == 'рандом':
         bot.send_message(chat_id, random.choice(message.text[7:].split(',')))
@@ -154,6 +154,11 @@ def handle_text(message):
 
     if 'с собой' in text:
         bot.send_message(chat_id, 'Да вы охуели там')
+
+    if text == 'да':
+        pizda = open('pizda.jpg', 'rb')
+        bot.send_photo(chat_id, pizda)
+        pizda.close()
 
 
 def days_til_freedom():
