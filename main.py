@@ -165,11 +165,11 @@ def days_til_freedom():
     while True:
         time_now = datetime.datetime.now(datetime.timezone.utc).strftime('%H:%M:%S')[:5]
         if time_now == '06:00':
+            weekday = datetime.datetime.today().weekday()
             if weekday != 5 and weekday != 6:
                 bot.send_message(-1001378368946, random.choice(('Утро в хату', 'Дарова', 'Керш в здании')) +
                                  random.choice((', пацаны и пацанессы', ', собаки')) + '!')
                 '''weather_day(bot, -1001378368946, 0)'''
-                weekday = datetime.datetime.today().weekday()
                 bot.send_message(-1001378368946, random.choice(('Меню Африки:', 'А можно меню Африки? - спросите вы')))
                 send_menu(bot, -1001378368946)
                 bot.send_message(-1001378368946, random.choice(('Хорошего дня, пидоры <3', 'Не благодарите',
